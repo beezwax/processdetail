@@ -1,9 +1,9 @@
-# processdetail
+## processdetail
 
-## Introduction
+### Introduction
 This is an executable that prints out the CPU usage for a given process, including its threads. The format is designed to be easily consumed by other scripts or FileMaker (the monitoring of FileMaker Server script processes was a key goal).
 
-## Installation
+### Installation
 The suggested installation (after building if required) is to simply copy the file to /usr/local/bin.
 
 To ensure the proper execute permissions are in place, you may need to run the following command:
@@ -11,7 +11,7 @@ To ensure the proper execute permissions are in place, you may need to run the f
 sudo chmod ugo+x /usr/local/bin/processdetail
 ```
 
-## Options
+### Options
 
 option	| description
 ------- | -----------
@@ -32,6 +32,7 @@ $ sudo /opt/local/bin/processdetail -n Finder
 ```
 
 These values correspond to the following fields:
+
 1.  time stamp w/ microseconds
 2.  cpu usage for user processes
 3.  cpu usage for system processes
@@ -82,7 +83,7 @@ $pd.threadcpu[8]=0.30;
 $pd.totalcpu=8.20
 ```
 
-## Monitoring with the processdtail command
+### Monitoring with the processdtail command
 
 This command by itself will work well for monitoring for short periods of time, but if you'd like to monitor while the system is unattended or integrate with your FileMaker system it is insufficient. We'll need a few other pieces.
 
