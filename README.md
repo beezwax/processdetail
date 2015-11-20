@@ -83,7 +83,7 @@ $pd.threadcpu[8]=0.30;
 $pd.totalcpu=8.20
 ```
 
-### Monitoring with the processdtail command
+### Monitoring with the processdetail command
 
 This command by itself will work well for monitoring for short periods of time, but if you'd like to monitor while the system is unattended or integrate with your FileMaker system it is insufficient. We'll need a few other pieces.
 
