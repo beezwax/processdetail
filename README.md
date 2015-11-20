@@ -1,10 +1,10 @@
 # processdetail
 
 ## Introduction
-This is an executable that prints out the CPU usage for a given process, including its threads. The format is designed to be easily consumed by other scripts or FileMaker.
+This is an executable that prints out the CPU usage for a given process, including its threads. The format is designed to be easily consumed by other scripts or FileMaker (the monitoring of FileMaker Server script processes was a key goal).
 
 ## Installation
-Basic installation (after building, if required) is to copy the file to /usr/local/bin, but it can be kept anywhere.
+The suggested installation (after building if required) is to simply copy the file to /usr/local/bin.
 
 To ensure the proper execute permissions are in place, you may need to run the following command:
 ```
@@ -12,8 +12,9 @@ sudo chmod ugo+x /usr/local/bin/processdetail
 ```
 
 ## Options
+
 option	| description
---------------------
+------- | -----------
 -d	| format so that output can be used in a FileMaker Evaluate function when wrapped in Let
 -n	| process name to montor, eg "-n fmsased"
 -p	| pid (process number) to monitor
@@ -31,30 +32,31 @@ $ sudo /opt/local/bin/processdetail -n Finder
 ```
 
 These values correspond to the following fields:
-1. time stamp w/ microseconds
-2. cpu usage for user processes
-3. cpu usage for system processes
-4. cpu idle
-5. network bytes in
-6. network bytes out
-7. process ID being monitored
-8. VM size
-9. resident memory used
-10. page fault count
-11. page in count
-12. copy-on-write fault count
-13. thread policy
-14. thread count
-15. cpu usage for thread 1
-16. cpu usage for thread 2
-17. cpu usage for thread 3
-18. cpu usage for thread 4
-19. cpu usage for thread 5
-20. total cpu usage
+1.  time stamp w/ microseconds
+2.  cpu usage for user processes
+3.  cpu usage for system processes
+4.  cpu idle
+5.  network bytes in
+6.  network bytes out
+7.  process ID being monitored
+8.  VM size
+9.  resident memory used
+10.  page fault count
+11.  page in count
+12.  copy-on-write fault count
+13.  thread policy
+14.  thread count
+15.  cpu usage for thread 1
+16.  cpu usage for thread 2
+17.  cpu usage for thread 3
+18.  cpu usage for thread 4
+19.  cpu usage for thread 5
+20.  total cpu usage
 
 With the alternate format specified with -d you get output like this example:
 
-```$ sudo /opt/local/bin/processdetail -n Finder -d
+```
+$ sudo /opt/local/bin/processdetail -n Finder -d
 $pd.timestamp="19:09:29.285017";
 $pd.user=6.00;
 $pd.system=8.00;
