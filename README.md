@@ -89,7 +89,7 @@ $pd.totalcpu=8.20
 
 This command by itself will work well for monitoring for short periods of time, but if you'd like to monitor while the system is unattended or integrate with your FileMaker system it is insufficient. We'll need a few other pieces.
 
-First, a script to start the needed command and capture its output. We'll create this in a file via sudo nano /usr/local/sbin/processdetail_logger.sh.
+First, a script to start the needed command and capture its output. We'll create this in a file with `sudo nano /usr/local/sbin/processdetail_logger.sh`.
 ```
 #!/bin/bash
 
@@ -115,13 +115,19 @@ killall processdetail 2>/dev/null
 
 # Start the processdetail command, appending one line's output to log every 30 seconds
 /usr/local/bin/processdetail -n fmsased -w 30 >> $logPath/$logName &
+```
+
 Next up is to create a crontab entry to start the log every hour (which may restart it, but that's ok). Enter the following with sudo crontab -e:
-
+```
 0 * * * *    /usr/local/sbin/processdetail_logger.sh
+```
+
 If desired, this command will allow a FileMaker server-side schedule to import the log data:
-
+```
 cd "/Library/FileMaker Server/Data/Documents"; sudo ln -s /var/log/processdetail.log
-Now, make the logs get rotated by creating a newsyslog entry with sudo nano /etc/newsyslog.d/processdetail.conf:
+```
 
+Now, make the logs get rotated by creating a newsyslog entry with `sudo nano /etc/newsyslog.d/processdetail.conf`:
+```
 /var/log/processdetail.log        644        5        5120        *        J
 ```
