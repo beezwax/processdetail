@@ -23,7 +23,9 @@ option	| description
 
 It expects either a -p or -n option to specify the process to monitor. If using the name, it always uses the process with the highest process ID.
 
-Output In the default format a comma delimited list of values is provided. If you were to check on Finder you might get:
+### Output
+
+In the default format a comma delimited list of values is provided. If you were to check on the Finder you might get:
 ```
 $ sudo /opt/local/bin/processdetail -n Finder
 19:00:37.272129, 4.00, 7.00, 89.00, 330, 3043696640, 121090048, 1415607, 1744, 4683, Standard, 5, 1.00, 0.00, 0.00, 0.00, 0.00, 1.00
